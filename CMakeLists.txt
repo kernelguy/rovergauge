@@ -53,6 +53,13 @@ if (MINGW)
   else ()
     message (SEND_ERROR "Could not find MinGW's mingwm10.dll!")
   endif ()
+
+  find_library (LIBSTDCPP libstdc++-6)
+  if (LIBSTDCPP)
+    message (STATUS "Found libstdc++-6 at ${LIBSTDCPP}")
+  else ()
+    message (SEND_ERROR "Could not find libstdc++-6.dll!")
+  endif ()
   
   find_library (QTCORE4_DLL QtCore4)
   if (QTCORE4_DLL)
@@ -88,6 +95,7 @@ if (MINGW)
   install (FILES ${EXE_FILE}
                  ${MINGW_LIBGCC}
                  ${MINGW_M10}
+		 ${LIBSTDCPP}
                  ${QTCORE4_DLL}
                  ${QTGUI4_DLL}
                  ${COMM14CUX_DLL}
