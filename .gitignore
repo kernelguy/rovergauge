@@ -26,3 +26,6 @@ rovergauge-*.zip
 *.deb
 *.tar.gz
 build/
+/Release/
+.cproject
+.project
